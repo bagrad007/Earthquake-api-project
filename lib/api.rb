@@ -4,5 +4,6 @@ class Api
   def self.get_report_by_zip(zip)
     url = "https://api.aerisapi.com/earthquakes/"
     response = HTTParty.get(url)
+    binding.pry
   end
 end

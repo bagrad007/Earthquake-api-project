@@ -1,5 +1,10 @@
-require "pry"
+class Cli
+  def welcome
+    puts "Welcome to the Earthquake CLI app!"
+    self.prompt_for_zip
+  end
 
-require_relative("../lib/api")
-require_relative("../lib/cli")
-require_relative("../lib/location")
+  def prompt_for_zip
+    input = gets.strip
+  end
+end
