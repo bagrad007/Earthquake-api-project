@@ -8,6 +8,9 @@ class Api
     url = "https://api.aerisapi.com/earthquakes/closest?p=#{place}&radius=3000miles&client_id=TPgjRDTtKBBQd4Q2fLI3c&client_secret=#{@@api_key}"
     response = HTTParty.get(url)
     # binding.pry
+    if response["error"]
+      return false
+    end
     location_hash = {
       profile: response["response"][0]["profile"]["tz"],
       mag: response["response"][0]["report"]["mag"],
