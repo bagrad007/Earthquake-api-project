@@ -5,7 +5,7 @@ class Cli
   end
 
   def prompt_for_place
-    puts "Please enter a Zip code to get started!"
+    puts "Please enter a Zip code, or city and state in this format [city, state] to get started!"
     input = gets.strip
     location = Api.get_report_by_place(input)
     # binding.pry
