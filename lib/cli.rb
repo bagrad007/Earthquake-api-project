@@ -63,13 +63,17 @@ class Cli
       puts "An estimated 15 major type quakes happen per year."
       self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(8, 8.4)
-      puts "The magnitude is #{location.mag}. Some well-built wooden structures destroyed; most masonry and frame stuctures destroyed along with the foundations. Rails will be bent. It's estimated that only 1 of these great type quakes happen every year."
+      puts "The magnitude is #{location.mag}. Some well-built wooden structures destroyed; most masonry and frame stuctures destroyed along with the foundations. Rails will be bent."
+      puts "It's estimated that only 1 of these great type quakes happen every year."
       self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(8.5, 8.9)
-      puts "The magnitude is #{location.mag}. Few, if any (masonry) structures remain standing. Bridges and many buildings will be destroyed, and railings will be greatly bent. It's estimated only 1 or less great type quakes happen per year."
+      puts "The magnitude is #{location.mag}. Few, if any (masonry) structures remain standing. Bridges and many buildings will be destroyed, and railings will be greatly bent."
+      puts "It's estimated only 1 or less great type quakes happen per year."
       self.prompt_place_or_exit
     elsif input == 1 && location.mag >= 9
-      puts "The magnitude is #{location.mag}. Damage is total. Lines of sight and level are distorted and objects will be thrown into the air. Extensive damage over broad areas. It's estimated that only 1 great quake happens in every 5 to 10 years of this magnitude."
+      puts "The magnitude is #{location.mag}. Damage is total. Lines of sight and level are distorted and objects will be thrown into the air."
+      puts "Extensive damage over broad areas."
+      puts "It's estimated that only 1 great quake happens in every 5 to 10 years of this magnitude."
       self.prompt_place_or_exit
     elsif input == 2
       self.prompt_for_place
