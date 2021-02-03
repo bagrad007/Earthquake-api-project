@@ -35,23 +35,11 @@ class Cli
     elsif input.to_i == 1 && location.mag.between?(3.1, 3.9)
       self.minor_quake(location)
     elsif input.to_i == 1 && location.mag.between?(4, 4.9)
-      puts "--------------"
-      puts "The magnitude is #{location.mag}. This type of quake is felt indoors by many, outdoors by few. "
-      puts "Dishes can be disturbed, some windows can be broken, and the walls can make a cracking sound."
-      puts "An estimated 10,000 light type quakes happen per year."
-
+      self.light_quake(location)
     elsif input.to_i == 1 && location.mag.between?(5, 5.9)
-      puts "--------------"
-      puts "The magnitude is #{location.mag}. This type of quake is felt by most people."
-      puts "Can possibly cause broken plaster and chimneys to buildings."
-      puts "An estimated 1,000 moderate type quakes happen per year."
-
+      self.moderate_quake(location)
     elsif input.to_i == 1 && location.mag.between?(6, 6.9)
-      puts "--------------"
-      puts "The magnitude is #{location.mag}. Damage will vary based on how well the construction of the building was made."
-      puts "Poorly built buildings will sustain considerable damage, while buildings with good design and construction will have negligible damage."
-      puts "An estimated 130 strong type quakes happen each year."
-      self.prompt_place_or_exit
+      self.strong_quake
     elsif input.to_i == 1 && location.mag.between?(7, 7.9)
       puts "--------------"
       puts "The magnitude is #{location.mag}. Damage will be considerable in specially designed structures, with well-designed frame structures thrown out of plumb."
@@ -94,12 +82,30 @@ class Cli
 
   def minor_quake(location)
     puts "--------------"
-      puts "The magnitude is #{location.mag}. This type of quake is felt noticeably by persons indoors, especially on upper floors of buildings."
-      puts "Standing motor cars may rock slightly. Vibrations are similar to the passing of a truck."
-      puts "An estimated 100,000 minor type quakes happen a year."
+    puts "The magnitude is #{location.mag}. This type of quake is felt noticeably by persons indoors, especially on upper floors of buildings."
+    puts "Standing motor cars may rock slightly. Vibrations are similar to the passing of a truck."
+    puts "An estimated 100,000 minor type quakes happen a year."
   end
 
-  def  
+  def light_quake(location)
+    puts "--------------"
+    puts "The magnitude is #{location.mag}. This type of quake is felt indoors by many, outdoors by few. "
+    puts "Dishes can be disturbed, some windows can be broken, and the walls can make a cracking sound."
+    puts "An estimated 10,000 light type quakes happen per year."
+  end
+
+  def moderate_quake(location)
+    puts "--------------"
+    puts "The magnitude is #{location.mag}. This type of quake is felt by most people."
+    puts "Can possibly cause broken plaster and chimneys to buildings."
+    puts "An estimated 1,000 moderate type quakes happen per year."
+  end
+
+  def strong_quake(location)
+    puts "--------------"
+    puts "The magnitude is #{location.mag}. Damage will vary based on how well the construction of the building was made."
+    puts "Poorly built buildings will sustain considerable damage, while buildings with good design and construction will have negligible damage."
+    puts "An estimated 130 strong type quakes happen each year."
   end
 
   def prompt_place_or_exit
