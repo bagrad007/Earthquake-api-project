@@ -27,7 +27,6 @@ class Cli
     puts "1. Yes"
     puts "2. No, I'd like to enter another zip"
     input = gets.strip
-    # binding.pry
     if input.to_i == 1 && location.mag <= 3
       self.micro_quake(location)
     elsif input.to_i == 1 && location.mag.between?(3.1, 3.9)
