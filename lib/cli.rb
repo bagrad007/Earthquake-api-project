@@ -10,7 +10,6 @@ class Cli
     puts "Type exit to leave anytime!"
     input = gets.strip.downcase
     location = Api.get_report_by_place(input)
-    # binding.pry
     if location
       puts "--------------"
       puts "The nearest earthquake is #{location.region}."
