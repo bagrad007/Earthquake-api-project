@@ -8,17 +8,17 @@ class Cli
   def prompt_for_place
     puts "Please enter a Zip code, or city and state in this format [city, state] to get started!"
     puts "Type exit to leave anytime!"
-    input = gets.strip.downcase
+    input = gets.strip
     location = Api.get_report_by_place(input)
     if location
       puts "--------------"
       puts "The nearest earthquake is #{location.region}."
       puts "--------------"
       self.info_options(location)
-    elsif input == "exit"
+    elsif input.downcase == "exit"
       self.exit_method
     else
-      self.invalid_selection
+      self.invalid_selection(location)
     end
   end
 
