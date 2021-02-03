@@ -43,16 +43,9 @@ class Cli
     elsif input.to_i == 1 && location.mag.between?(7, 7.9)
       self.major_quake
     elsif input.to_i == 1 && location.mag.between?(8, 8.4)
-      puts "--------------"
-      puts "The magnitude is #{location.mag}. Some well-built wooden structures destroyed."
-      puts "Most masonry and frame stuctures destroyed along with the foundations. Rails will be bent."
-      puts "It's estimated that only 1 of these great type quakes happen every year."
-      self.prompt_place_or_exit
+      self.great_quake(location)
     elsif input.to_i == 1 && location.mag.between?(8.5, 8.9)
-      puts "The magnitude is #{location.mag}. Few, if any (masonry) structures remain standing."
-      puts "Bridges and many buildings will be destroyed, and railings will be greatly bent."
-      puts "It's estimated only 1 or less great type quakes happen per year."
-      self.prompt_place_or_exit
+      self.very_great_quake(location)
     elsif input.to_i == 1 && location.mag >= 9
       puts "The magnitude is #{location.mag}. Damage is total. Lines of sight and level are distorted and objects will be thrown into the air."
       puts "Extensive damage over broad areas."
@@ -112,6 +105,16 @@ class Cli
   end
 
   def great_quake(location)
+    puts "--------------"
+    puts "The magnitude is #{location.mag}. Some well-built wooden structures destroyed."
+    puts "Most masonry and frame stuctures destroyed along with the foundations. Rails will be bent."
+    puts "It's estimated that only 1 of these great type quakes happen every year."
+  end
+
+  def very_great_quake
+    puts "The magnitude is #{location.mag}. Few, if any (masonry) structures remain standing."
+    puts "Bridges and many buildings will be destroyed, and railings will be greatly bent."
+    puts "It's estimated only 1 or less very great type quakes happen per year."
   end
 
   def prompt_place_or_exit
