@@ -32,15 +32,20 @@ class Cli
     input = gets.strip.to_i
     # binding.pry
     if input == 1 && location.mag <= 3
-      puts "The magnitude is #{location.mag}. This type of quake is rarely felt, but can be recorded by a seismograph. It's estimated that over a million micro to minor type quakes per year."
+      puts "The magnitude is #{location.mag}. This type of quake is rarely felt, but can be recorded by a seismograph."
+      puts "It's estimated that over a million micro to minor type quakes happen per year."
       puts "You're more likely to feel a fart than this quake."
       self.prompt_place_or_exit
       puts "--------------"
     elsif input == 1 && location.mag.between?(3, 3.9)
-      puts "The magnitude is #{location.mag}. This type of quake is felt noticeably by persons indoors, especially on upper floors of buildings. Standing motor cars may rock slightly. Vibrations are similar to the passing of a truck. An estimated 100,000 minor type quakes happen a year."
+      puts "The magnitude is #{location.mag}. This type of quake is felt noticeably by persons indoors, especially on upper floors of buildings."
+      puts "Standing motor cars may rock slightly. Vibrations are similar to the passing of a truck."
+      puts "An estimated 100,000 minor type quakes happen a year."
       self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(4, 4.9)
-      puts "The magnitude is #{location.mag}. This type of quake is felt indoors by many, outdoors by few. Dishes can be disturbed, some windows can be broken, and the walls can make a cracking sound. An estimated 10,000 light type quakes happen per year."
+      puts "The magnitude is #{location.mag}. This type of quake is felt indoors by many, outdoors by few. "
+      puts "Dishes can be disturbed, some windows can be broken, and the walls can make a cracking sound."
+      puts "An estimated 10,000 light type quakes happen per year."
       self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(5, 5.9)
       puts "The magnitude is #{location.mag}. This type of quake is felt by most people. Can possibly cause broken plaster and chimneys to buildings. An estimated 1,000 moderate type quakes happen per year."
