@@ -1,4 +1,4 @@
-#Earthquake Tracker
+# Earthquake Tracker
 
 So this is a basic app that returns the nearest earthquake based on a location you input into the terminal! 
 Just input a zip code or City and State (In this format "Philadelphia, PA") and the app will return the nearest quake from your inputted location! 
@@ -14,6 +14,7 @@ Copy the github SSH or HTTPS key.
 
 In your terminal: 
     git clone "paste-repo-key"
+    
     cd "pasted-repo-key"
 Run:
     "bundle install"
@@ -24,5 +25,5 @@ Finally, to run the app, just type:
 
 You're ready to search for an Earthquake!
 
-##Authors
+## Authors
 Luke Gill
