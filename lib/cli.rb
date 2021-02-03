@@ -37,20 +37,23 @@ class Cli
       self.prompt_place_or_exit
       puts "--------------"
     elsif input == 1 && location.mag.between?(3, 3.9)
-      puts "The magnitude is #{location.mag}. This type of quake is felt noticeably by persons indoors, especially on upper floors of buildings. Standing motor cars may rock slightly. Vibrations are similar to the passing of a truck. An estimated 100,000 minor type quakes happen a year!"
+      puts "The magnitude is #{location.mag}. This type of quake is felt noticeably by persons indoors, especially on upper floors of buildings. Standing motor cars may rock slightly. Vibrations are similar to the passing of a truck. An estimated 100,000 minor type quakes happen a year."
       self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(4, 4.9)
-      puts "The magnitude is #{location.mag}. This type of quake is felt indoors by many, outdoors by few. Dishes can be disturbed, some windows can be broken, and the walls can make a cracking sound. An estimated 10,000 light type quakes happen per year!"
+      puts "The magnitude is #{location.mag}. This type of quake is felt indoors by many, outdoors by few. Dishes can be disturbed, some windows can be broken, and the walls can make a cracking sound. An estimated 10,000 light type quakes happen per year."
       self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(5, 5.9)
-      puts "The magnitude is #{location.mag}. This type of quake is felt by most people. Can possibly cause broken plaster and chimneys to buildings. An estimated 1,000 moderate type quakes happen per year!"
+      puts "The magnitude is #{location.mag}. This type of quake is felt by most people. Can possibly cause broken plaster and chimneys to buildings. An estimated 1,000 moderate type quakes happen per year."
+      self.prompt_place_or_exit
+    elsif input == 1 && location.mag.between?(6, 6.9)
+      puts "The magnitude is #{location.mag}. Damage will vary based on how well the construction of the building was made. Poorly built buildings will sustain considerable damage, while buildings with good design and construction will have negligible damage. An estimated 130 strong type quakes happen each year."
       self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(7, 7.9)
-      puts "The magnitude is #{location.mag}. This is a major earthquake. It will cause serious damage to anything within it's radius. An estimated 20 major type quakes happen each year!"
+      puts "The magnitude is #{location.mag}. Damage will be considerable in specially designed structures, with well-designed frame structures thrown out of plumb. Buildings can sustain partial collapse and be shifted off foundations. An estimated 15 major type quakes happen per year."
       self.prompt_place_or_exit
-    elsif input == 1 && location.mag >= 8
-      puts "The magnitude is #{location.mag}. This is a Great earthquake. It can totally destroy communities near the epicenter. An estimated one Great quake happens every 5-10 years"
-      self.prompt_place_or_exit
+    elsif input == 1 && location.mag.between?(8, 8.9)
+      puts "The magnitude is #{location.mag}. "
+      self.prompt_for_place
     elsif input == 2
       self.prompt_for_place
     elsif input == "exit"
