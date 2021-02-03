@@ -41,11 +41,7 @@ class Cli
     elsif input.to_i == 1 && location.mag.between?(6, 6.9)
       self.strong_quake
     elsif input.to_i == 1 && location.mag.between?(7, 7.9)
-      puts "--------------"
-      puts "The magnitude is #{location.mag}. Damage will be considerable in specially designed structures, with well-designed frame structures thrown out of plumb."
-      puts "Buildings can sustain partial collapse and be shifted off foundations."
-      puts "An estimated 15 major type quakes happen per year."
-      self.prompt_place_or_exit
+      self.major_quake
     elsif input.to_i == 1 && location.mag.between?(8, 8.4)
       puts "--------------"
       puts "The magnitude is #{location.mag}. Some well-built wooden structures destroyed."
@@ -106,6 +102,16 @@ class Cli
     puts "The magnitude is #{location.mag}. Damage will vary based on how well the construction of the building was made."
     puts "Poorly built buildings will sustain considerable damage, while buildings with good design and construction will have negligible damage."
     puts "An estimated 130 strong type quakes happen each year."
+  end
+
+  def major_quake(location)
+    puts "--------------"
+    puts "The magnitude is #{location.mag}. Damage will be considerable in specially designed structures, with well-designed frame structures thrown out of plumb."
+    puts "Buildings can sustain partial collapse and be shifted off foundations."
+    puts "An estimated 15 major type quakes happen per year."
+  end
+
+  def great_quake(location)
   end
 
   def prompt_place_or_exit
