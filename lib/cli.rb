@@ -57,8 +57,16 @@ class Cli
       self.info_options(location)
       puts "--------------"
     elsif input == 1 && location.mag.between?(2.5, 5.4)
-      puts "The magnitude is #{location.mag}. This type of quake is often felt, but only causes minor damage. An estimated 30,000 of them happen a year!"
+      puts "The magnitude is #{location.mag}. This type of quake is often felt, but only causes minor damage. An estimated 30,000 light type quakes happen a year!"
       puts "If Bob doesn't tie down his belongings, Linda will have broken dishes!"
+    elsif input == 1 && location.mag.between?(5.5, 6)
+      puts "The magnitude is #{location.mag}. This type of quake can cause slight damage to buildings and other structures. An estimated 500 moderate type quakes happen per year!"
+    elsif input == 1 && location.mag.between?(6.1, 6.9)
+      puts "The magnitude is #{location.mag}. This type of quake may cause a lot of damage in very populated areas. An estimated 100 strong type quakes per year!"
+    elsif input == 1 && location.mag.between?(7, 7.9)
+      puts "The magnitude is #{location.mag}. This is a major earthquake. It will cause serious damage to anything within it's radius. An estimated 20 major type quakes happen each year!"
+    elsif input == 1 && location.mag > 8
+      puts "The magnitude is #{location.mag}. This is a Great earthquake. It can totally destroy communities near the epicenter. An estimated one Great quake happens every 5-10 years"
     elsif input == 2
       self.prompt_place
     elsif input == "exit"
