@@ -31,20 +31,19 @@ class Cli
     puts "2. No, I'd like to enter another zip"
     input = gets.strip.to_i
     # binding.pry
-    if input == 1 && location.mag <= 2.5
-      print "The magnitude is #{location.mag}. This type of quake is usually not felt, but can be recorded by a seismograph. There are an estimated 900,000 minor type quakes per year."
+    if input == 1 && location.mag <= 3
+      puts "The magnitude is #{location.mag}. This type of quake is rarely felt, but can be recorded by a seismograph. It's estimated that over a million micro to minor type quakes per year."
       puts "You're more likely to feel a fart than this quake."
       self.prompt_place_or_exit
       puts "--------------"
-    elsif input == 1 && location.mag.between?(2.5, 5.4)
-      puts "The magnitude is #{location.mag}. This type of quake is often felt, but only causes minor damage. An estimated 30,000 light type quakes happen a year!"
-      puts "If Bob doesn't tie down his belongings, Linda will have broken dishes!"
+    elsif input == 1 && location.mag.between?(3, 3.9)
+      puts "The magnitude is #{location.mag}. This type of quake is felt noticeably by persons indoors, especially on upper floors of buildings. Standing motor cars may rock slightly. Vibrations are similar to the passing of a truck. An estimated 100,000 minor type quakes happen a year!"
       self.prompt_place_or_exit
-    elsif input == 1 && location.mag.between?(5.5, 6)
-      puts "The magnitude is #{location.mag}. This type of quake can cause slight damage to buildings and other structures. An estimated 500 moderate type quakes happen per year!"
+    elsif input == 1 && location.mag.between?(4, 4.9)
+      puts "The magnitude is #{location.mag}. This type of quake is felt indoors by many, outdoors by few. Dishes can be disturbed, some windows can be broken, and the walls can make a cracking sound. An estimated 10,000 light type quakes happen per year!"
       self.prompt_place_or_exit
-    elsif input == 1 && location.mag.between?(6.1, 6.9)
-      puts "The magnitude is #{location.mag}. This type of quake may cause a lot of damage in very populated areas. An estimated 100 strong type quakes per year!"
+    elsif input == 1 && location.mag.between?(5, 5.9)
+      puts "The magnitude is #{location.mag}. This type of quake is felt by most people. Can possibly cause broken plaster and chimneys to buildings. An estimated 1,000 moderate type quakes happen per year!"
       self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(7, 7.9)
       puts "The magnitude is #{location.mag}. This is a major earthquake. It will cause serious damage to anything within it's radius. An estimated 20 major type quakes happen each year!"
