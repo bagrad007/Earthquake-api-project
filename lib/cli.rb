@@ -25,26 +25,6 @@ class Cli
     end
   end
 
-  # def ask_for_info(location)
-  #   puts "Would you like some information on the quake?"
-  #   puts "--------------"
-  #   puts "1. Yes"
-  #   puts "2. No, I'd like to enter another zip"
-  #   input = gets.strip.to_i
-  #   # binding.pry
-  #   if input == 1
-  #     self.info_options(location)
-  #   elsif input == 2
-  #     self.prompt_for_place
-  #   elsif input == "exit" || "Exit"
-  #     self.exit_method
-  #   else
-  #     puts "--------------"
-  #     puts "Invalid choice, try again!"
-  #     self.ask_for_info(location)
-  #   end
-  # end
-
   def info_options(location)
     puts "Would you like more information on the quake?"
     puts "1. Yes"
@@ -65,7 +45,7 @@ class Cli
       puts "The magnitude is #{location.mag}. This type of quake may cause a lot of damage in very populated areas. An estimated 100 strong type quakes per year!"
     elsif input == 1 && location.mag.between?(7, 7.9)
       puts "The magnitude is #{location.mag}. This is a major earthquake. It will cause serious damage to anything within it's radius. An estimated 20 major type quakes happen each year!"
-    elsif input == 1 && location.mag > 8
+    elsif input == 1 && location.mag >= 8
       puts "The magnitude is #{location.mag}. This is a Great earthquake. It can totally destroy communities near the epicenter. An estimated one Great quake happens every 5-10 years"
     elsif input == 2
       self.prompt_place
