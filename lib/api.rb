@@ -18,12 +18,4 @@ class Api
     }
     Location.new(location_hash)
   end
-
-  #   def self.search_by_place(place)
-  #     url = "https://api.aerisapi.com/earthquakes/#{place}?radius=15000miles&client_id=TPgjRDTtKBBQd4Q2fLI3c&client_secret=#{@@api_key}"
-  #     response = HTTParty.get(url)
-  #     if response["error"]
-  #       return false
-  #     end
-  #   end
 end
