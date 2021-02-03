@@ -19,6 +19,7 @@ In your terminal:
     cd "pasted-repo-key"
 
 Run:
+
     "bundle install"
 
 To download the necessary Gems.
