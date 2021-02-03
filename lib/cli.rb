@@ -29,30 +29,23 @@ class Cli
     puts "1. Yes"
     puts "2. No, I'd like to enter another zip"
     input = gets.strip
+    # binding.pry
     if input.to_i == 1 && location.mag <= 3
-      puts "--------------"
-      puts "The magnitude is #{location.mag}. This type of quake is rarely felt, but can be recorded by a seismograph."
-      puts "It's estimated that over a million micro to minor type quakes happen per year."
-      puts "You're more likely to feel a fart than this quake."
-      self.prompt_place_or_exit
-    elsif input.to_i == 1 && location.mag.between?(3, 3.9)
-      puts "--------------"
-      puts "The magnitude is #{location.mag}. This type of quake is felt noticeably by persons indoors, especially on upper floors of buildings."
-      puts "Standing motor cars may rock slightly. Vibrations are similar to the passing of a truck."
-      puts "An estimated 100,000 minor type quakes happen a year."
-      self.prompt_place_or_exit
+      self.micro_quake(location)
+    elsif input.to_i == 1 && location.mag.between?(3.1, 3.9)
+      self.minor_quake(location)
     elsif input.to_i == 1 && location.mag.between?(4, 4.9)
       puts "--------------"
       puts "The magnitude is #{location.mag}. This type of quake is felt indoors by many, outdoors by few. "
       puts "Dishes can be disturbed, some windows can be broken, and the walls can make a cracking sound."
       puts "An estimated 10,000 light type quakes happen per year."
-      self.prompt_place_or_exit
+
     elsif input.to_i == 1 && location.mag.between?(5, 5.9)
       puts "--------------"
       puts "The magnitude is #{location.mag}. This type of quake is felt by most people."
       puts "Can possibly cause broken plaster and chimneys to buildings."
       puts "An estimated 1,000 moderate type quakes happen per year."
-      self.prompt_place_or_exit
+
     elsif input.to_i == 1 && location.mag.between?(6, 6.9)
       puts "--------------"
       puts "The magnitude is #{location.mag}. Damage will vary based on how well the construction of the building was made."
@@ -89,13 +82,30 @@ class Cli
       puts "Invalid selection, pick a different one!"
       self.info_options(location)
     end
+    self.prompt_place_or_exit
+  end
+
+  def micro_quake(location)
+    puts "--------------"
+    puts "The magnitude is #{location.mag}. This type of quake is rarely felt, but can be recorded by a seismograph."
+    puts "It's estimated that over a million micro to minor type quakes happen per year."
+    puts "You're more likely to feel a fart than this quake."
+  end
+
+  def minor_quake(location)
+    puts "--------------"
+      puts "The magnitude is #{location.mag}. This type of quake is felt noticeably by persons indoors, especially on upper floors of buildings."
+      puts "Standing motor cars may rock slightly. Vibrations are similar to the passing of a truck."
+      puts "An estimated 100,000 minor type quakes happen a year."
+  end
+
+  def  
   end
 
   def prompt_place_or_exit
     puts "Would you like to search another location?"
     puts "1. Yes"
     puts "2. I'm done for now, thank you!"
-
     input = gets.strip.downcase
 
     if input == "1"
