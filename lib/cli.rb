@@ -39,8 +39,10 @@ class Cli
     elsif input == 1 && location.mag.between?(2.5, 5.4)
       puts "The magnitude is #{location.mag}. This type of quake is often felt, but only causes minor damage. An estimated 30,000 light type quakes happen a year!"
       puts "If Bob doesn't tie down his belongings, Linda will have broken dishes!"
+      self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(5.5, 6)
       puts "The magnitude is #{location.mag}. This type of quake can cause slight damage to buildings and other structures. An estimated 500 moderate type quakes happen per year!"
+      self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(6.1, 6.9)
       puts "The magnitude is #{location.mag}. This type of quake may cause a lot of damage in very populated areas. An estimated 100 strong type quakes per year!"
     elsif input == 1 && location.mag.between?(7, 7.9)
