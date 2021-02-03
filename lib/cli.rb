@@ -33,7 +33,7 @@ class Cli
     # binding.pry
     if input == 1 && location.mag <= 2.5
       print "The magnitude is #{location.mag}. This type of quake is usually not felt, but can be recorded by a seismograph. There are an estimated 900,000 minor type quakes per year."
-      puts "You're more likely to feel a fart than this quake"
+      puts "You're more likely to feel a fart than this quake."
       self.info_options(location)
       puts "--------------"
     elsif input == 1 && location.mag.between?(2.5, 5.4)
@@ -45,8 +45,10 @@ class Cli
       self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(6.1, 6.9)
       puts "The magnitude is #{location.mag}. This type of quake may cause a lot of damage in very populated areas. An estimated 100 strong type quakes per year!"
+      self.prompt_place_or_exit
     elsif input == 1 && location.mag.between?(7, 7.9)
       puts "The magnitude is #{location.mag}. This is a major earthquake. It will cause serious damage to anything within it's radius. An estimated 20 major type quakes happen each year!"
+      self.prompt_place_or_exit
     elsif input == 1 && location.mag >= 8
       puts "The magnitude is #{location.mag}. This is a Great earthquake. It can totally destroy communities near the epicenter. An estimated one Great quake happens every 5-10 years"
     elsif input == 2
