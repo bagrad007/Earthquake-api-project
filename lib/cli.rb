@@ -18,9 +18,7 @@ class Cli
     elsif input == "exit"
       self.exit_method
     else
-      puts "That location is invalid, please try again"
-      puts "--------------"
-      self.prompt_for_place
+      self.invalid_selection
     end
   end
 
@@ -47,17 +45,13 @@ class Cli
     elsif input.to_i == 1 && location.mag.between?(8.5, 8.9)
       self.very_great_quake(location)
     elsif input.to_i == 1 && location.mag >= 9
-      puts "The magnitude is #{location.mag}. Damage is total. Lines of sight and level are distorted and objects will be thrown into the air."
-      puts "Extensive damage over broad areas."
-      puts "It's estimated that only 1 great quake happens in every 5 to 10 years of this magnitude."
-      self.prompt_place_or_exit
+      self.strongest_quake
     elsif input.to_i == 2
       self.prompt_for_place
     elsif input == "exit"
       self.exit_method
     else
-      puts "Invalid selection, pick a different one!"
-      self.info_options(location)
+      self.invalid_selection(location)
     end
     self.prompt_place_or_exit
   end
@@ -111,10 +105,21 @@ class Cli
     puts "It's estimated that only 1 of these great type quakes happen every year."
   end
 
-  def very_great_quake
+  def very_great_quake(location)
     puts "The magnitude is #{location.mag}. Few, if any (masonry) structures remain standing."
     puts "Bridges and many buildings will be destroyed, and railings will be greatly bent."
     puts "It's estimated only 1 or less very great type quakes happen per year."
+  end
+
+  def strongest_quake(location)
+    puts "The magnitude is #{location.mag}. Damage is total. Lines of sight and level are distorted and objects will be thrown into the air."
+    puts "Extensive damage over broad areas."
+    puts "It's estimated that only 1 great quake happens in every 5 to 10 years of this magnitude."
+  end
+
+  def invalid_selection(location)
+    puts "Invalid selection, please try again!"
+    self.info_options(location)
   end
 
   def prompt_place_or_exit
