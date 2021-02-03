@@ -66,6 +66,7 @@ class Cli
     puts "Would you like to search another location?"
     puts "1. Yes"
     puts "2. I'm done for now, thank you!"
+
     input = gets.strip.to_i
 
     if input == 1

@@ -11,10 +11,8 @@ class Api
       return false
     end
     location_hash = {
-      profile: response["response"][0]["profile"]["tz"],
       mag: response["response"][0]["report"]["mag"],
       region: response["response"][0]["report"]["region"],
-      type: response["response"][0]["report"]["type"],
     }
     Location.new(location_hash)
   end
