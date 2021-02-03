@@ -27,5 +27,3 @@ class Api
   #     end
   #   end
 end
-
-Api.search_by_place(17036)
