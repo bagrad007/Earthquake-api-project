@@ -7,7 +7,6 @@ class Api
   def self.get_report_by_place(place)
     url = "https://api.aerisapi.com/earthquakes/closest?p=#{place}&radius=3000miles&client_id=TPgjRDTtKBBQd4Q2fLI3c&client_secret=#{@@api_key}"
     response = HTTParty.get(url)
-    # binding.pry
     if response["error"]
       return false
     end
@@ -19,4 +18,15 @@ class Api
     }
     Location.new(location_hash)
   end
+
+  def self.search_by_place(place)
+    url = "https://api.aerisapi.com/earthquakes/#{place}?radius=15000miles&client_id=TPgjRDTtKBBQd4Q2fLI3c&client_secret=#{@@api_key}"
+    response = HTTParty.get(url)
+    binding.pry
+    if response["error"]
+      return false
+    end
+  end
 end
+
+Api.search_by_place(17036)
