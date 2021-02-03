@@ -12,15 +12,19 @@ This app was built using Ruby and a couple gems included in the app.
 
 Copy the github SSH or HTTPS key.
 
-In your terminal: 
+In your terminal:
+
     git clone "paste-repo-key"
     
     cd "pasted-repo-key"
+
 Run:
     "bundle install"
+
 To download the necessary Gems.
 
 Finally, to run the app, just type:
+    
     ruby bin/run
 
 You're ready to search for an Earthquake!
