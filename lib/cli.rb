@@ -18,7 +18,8 @@ class Cli
     elsif input.downcase == "exit"
       self.exit_method
     else
-      self.invalid_selection(location)
+      puts "Invalid selection, please try again!"
+      self.prompt_for_place
     end
   end
 
@@ -129,10 +130,13 @@ class Cli
 
     if input == "1"
       self.prompt_for_place
+    elsif input == "2"
+      self.exit_method
     elsif input == "exit"
       self.exit_method
     else
-      self.exit_method
+      puts "Invalid selection, please try again!"
+      self.prompt_place_or_exit
     end
   end
 

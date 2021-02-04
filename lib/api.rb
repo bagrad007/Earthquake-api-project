@@ -1,7 +1,3 @@
-require "pry"
-require "httparty"
-require_relative "./location"
-
 class Api
   @@api_key = "CfLh8ssEDtxbhdlH1hLNn9vSOSP3z8ZGcUDOoCHu"
   def self.get_report_by_place(place)
