@@ -6,27 +6,27 @@ class Cli
   end
 
   def prompt_for_place
-    puts "Please enter a Zip code, or city and state in this format [city, state] to get started!"
+    puts "Please enter a Zip code, or city and state in this format [city, state] to get started!".colorize(:yellow)
     puts "Type exit to leave anytime!"
     input = gets.strip
     location = Api.get_report_by_place(input)
     if location
       puts "--------------"
-      puts "The nearest earthquake is #{location.region}."
+      puts "The nearest earthquake is #{location.region}.".colorize(:yellow)
       puts "--------------"
       self.info_options(location)
     elsif input.downcase == "exit"
       self.exit_method
     else
-      puts "Invalid selection, please try again!"
+      puts "Invalid selection, please try again!".colorize(:red)
       self.prompt_for_place
     end
   end
 
   def info_options(location)
-    puts "Would you like more information on the quake?"
-    puts "1. Yes"
-    puts "2. No, I'd like to enter another zip"
+    puts "Would you like more information on the quake?".colorize(:yellow)
+    puts "1. Yes".colorize(:green)
+    puts "2. No, I'd like to enter another zip".colorize(:light_blue)
     input = gets.strip
     if input.to_i == 1 && location.mag <= 3
       self.micro_quake(location)
@@ -72,7 +72,7 @@ class Cli
 
   def light_quake(location)
     puts "--------------"
-    puts "The magnitude is #{location.mag}. This type of quake is felt indoors by many, outdoors by few. "
+    puts "The magnitude is #{location.mag}. This type of quake is felt indoors by many, outdoors by few."
     puts "Dishes can be disturbed, some windows can be broken, and the walls can make a cracking sound."
     puts "An estimated 10,000 light type quakes happen per year."
   end
@@ -118,14 +118,14 @@ class Cli
   end
 
   def invalid_selection(location)
-    puts "Invalid selection, please try again!"
+    puts "Invalid selection, please try again!".colorize(:red)
     self.info_options(location)
   end
 
   def prompt_place_or_exit
-    puts "Would you like to search another location?"
-    puts "1. Yes"
-    puts "2. I'm done for now, thank you!"
+    puts "Would you like to search another location?".colorize(:yellow)
+    puts "1. Yes".colorize(:green)
+    puts "2. I'm done for now, thank you!".colorize(:light_blue)
     input = gets.strip.downcase
 
     if input == "1"
@@ -135,7 +135,7 @@ class Cli
     elsif input == "exit"
       self.exit_method
     else
-      puts "Invalid selection, please try again!"
+      puts "Invalid selection, please try again!".colorize(:red)
       self.prompt_place_or_exit
     end
   end
